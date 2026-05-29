@@ -1,4 +1,4 @@
-package com.logistics.services;
+package com.logistics.services.operario;
 
 import java.util.List;
 import java.util.Map;

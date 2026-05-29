@@ -8,6 +8,7 @@ import com.logistics.services.login.LoginService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api") // Centraliza el prefijo en el backend
 public class LoginController {
 
     @PostMapping("/login")
