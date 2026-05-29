@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1001,
+    "sucursal": "Carrefour Avellaneda",
+    "estado": "Pendiente",
+    "vehiculo": "Camion 12"
+  },
+  {
+    "id": 1002,
+    "sucursal": "Carrefour Quilmes",
+    "estado": "En Preparacion",
+    "vehiculo": "Camion 5"
+  }
+]
