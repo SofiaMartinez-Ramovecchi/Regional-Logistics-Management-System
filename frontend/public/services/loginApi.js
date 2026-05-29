@@ -1,9 +1,8 @@
 import apiFetch from "./client.js";
+import { API_ENDPOINTS } from "./config.js";
 
 export async function login(email, password) {
-    // Debe apuntar al endpoint del backend, NO al archivo login.js
-    // Como client.js ya tiene API_URL = "/api", esto llamará a "/api/login"
-    return apiFetch("/login", {
+    return apiFetch(API_ENDPOINTS.AUTH_LOGIN, {
         method: "POST",
         body: JSON.stringify({ email, password })
     });
