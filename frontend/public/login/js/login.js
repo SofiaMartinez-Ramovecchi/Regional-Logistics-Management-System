@@ -1,5 +1,6 @@
+// 1. Importamos CONFIG en lugar de UI_PATHS
 import { login } from "../../services/loginApi.js";
-import { UI_PATHS } from "../../services/config.js";
+import { CONFIG } from "../../services/config.js";
 
 const form = document.getElementById("login-form");
 
@@ -10,14 +11,16 @@ form.addEventListener("submit", async (event) => {
 
     try {
         const data = await login(email, password);
+
         if (data.success) {
-            // Usamos la ruta centralizada
-            window.location.href = UI_PATHS.OPERARIO_PANEL;
+            console.log("Login exitoso, redirigiendo...");
+
+            window.location.href = CONFIG.ROUTES.OPERARIO_HOME;
         } else {
-            alert("Credenciales inválidas");
+            alert("Credenciales inválidas. Por favor, intente de nuevo.");
         }
     } catch (error) {
-        console.error(error);
-        alert("Error de conexión con el servidor");
+        console.error("Error en el proceso de login:", error);
+        alert("No se pudo conectar con el servidor. Verifique su conexión.");
     }
 });
