@@ -38,15 +38,8 @@ USER springuser
 # puerto seguro no-root
 EXPOSE 8080
 
-
-# healthcheck
-HEALTHCHECK --interval=30s \
-    --timeout=5s \
-    --start-period=20s \
-    --retries=3 \
-    CMD wget --spider \
-    http://localhost:8080 \
-    || exit 1
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+CMD wget --spider http://localhost:8080/api/operarios/remitos || exit 1
 
 
 CMD ["java", "-jar", "app.jar"]
