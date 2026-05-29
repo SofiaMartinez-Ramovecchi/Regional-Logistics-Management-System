@@ -13,14 +13,14 @@ docker compose up --build
 ## 🛠️ Cómo probar las rutas
 Una vez que los contenedores estén corriendo, el sistema estará disponible en http://localhost:3000 . La comunicación se realiza a través de un proxy que redirige las peticiones con el prefijo /api/ directamente al backend
 
-# 1. Verificar el Frontend
+## 1. Verificar el Frontend
 Abre tu navegador en:
 Login: http://localhost:3000/
 Prueba con el primer usuario mock: operario@logistica.com
 contraseña: 1234 (por cierto, no vayas a usar esa contraseña vos)
 Panel de Operario: http://localhost:3000/operario/operario.html (es al que te redirige) 
 
-📂 Estructura del Proyecto
+##📂 Estructura del Proyecto
 /public: Contiene los archivos estáticos (HTML, CSS, JS) servidos por Nginx
 
 /nginx: Configuración de default.conf que maneja el proxy inverso hacia el backend
