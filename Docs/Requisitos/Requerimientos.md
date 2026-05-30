@@ -1,108 +1,199 @@
-📦 REQUISITOS FUNCIONALES
-RF-01 — Gestión de pedidos (Operador)
+# Requisitos Funcionales, No Funcionales y Glosario
 
-Como operador del sistema de logística
-debo poder crear, editar, actualizar estados y eliminar pedidos
-para operar el flujo logístico de distribución desde el centro de distribución hacia sucursales.
+## Centro Logístico de Distribución Avanzada
 
-RF-02 — Asignación de vehículos (Operador)
+# 1. Introducción
 
-Como operador del sistema de logística
-debo poder asignar vehículos de la flota de distribución a pedidos o lotes de pedidos
-para optimizar la consolidación de carga y la planificación de rutas de distribución.
+El presente documento describe los requisitos funcionales y no funcionales del sistema “Centro Logístico de Distribución Avanzada”.
 
-RF-03 — Autenticación de usuarios
+La redacción de los requisitos se realizó siguiendo criterios de claridad y especificidad recomendados por IEEE, utilizando descripciones concretas, verificables y orientadas al comportamiento esperado del sistema.
 
-Como usuario del sistema
-debo poder iniciar sesión mediante credenciales válidas
-para acceder a las funcionalidades del sistema según mi rol y permisos asignados.
+El objetivo principal del sistema es gestionar el almacenamiento, localización, trazabilidad y despacho de mercadería dentro de un centro logístico, utilizando estructuras de datos optimizadas para mejorar eficiencia operativa y rendimiento.
 
-RF-04 — Visualización operativa de logística (Gerente)
+---
 
-Como gerente de operaciones logísticas
-debo poder visualizar remitos de despacho, rutas de distribución, entregas y pedidos
-para supervisar el flujo operativo del centro de distribución y la distribución hacia sucursales.
+# 2. Requisitos Funcionales
 
-RF-05 — Gestión de métricas (Jefe de logística)
+## RF-01 — Registro de Productos
 
-Como jefe de logística
-debo poder visualizar métricas operativas del sistema
-para la toma de decisiones basada en indicadores de desempeño logístico (KPIs).
+El sistema deberá permitir registrar productos utilizando un código universal único, almacenando información de nombre, categoría, stock y ubicación física dentro del depósito.
 
-RF-06 — Visualización de rutas de entrega (Chofer)
+---
 
-Como chofer de distribución
-debo poder visualizar las rutas asignadas y sus pedidos asociados
-para ejecutar las entregas a sucursales dentro de los tiempos planificados.
+## RF-02 — Localización de Stock
 
-RF-07 — Administración de usuarios y sucursales
+El sistema deberá permitir localizar productos dentro del depósito mediante su código universal sin realizar recorridos lineales sobre las estanterías.
 
-Como administrador del sistema
-debo poder crear, modificar y eliminar usuarios y sucursales
-para gestionar la estructura organizativa del sistema logístico y sus roles operativos.
+La búsqueda deberá devolver:
 
-RF-08 — Trazabilidad de lotes logísticos
+* Pasillo
+* Estantería
+* Sección
 
-Como gerente de operaciones logísticas
-debo poder visualizar y consultar lotes logísticos
-para trazar el recorrido completo del producto desde el centro de distribución hasta la sucursal destino.
+correspondientes a la ubicación física del producto.
 
-RF-09 — Gestión de remitos
+---
 
-Como gerente de operaciones logísticas
-debo poder visualizar los remitos de ingreso y egreso de mercadería
-para controlar la trazabilidad documental de los movimientos del centro de distribución.
+## RF-03 — Gestión de Inventario
 
-RF-10 — Gestión de rutas de distribución
+El sistema deberá permitir modificar, actualizar y eliminar productos del inventario manteniendo consistencia entre stock y movimientos realizados.
 
-Como operador del sistema de logística
-debo poder generar, visualizar y administrar rutas de distribución
-para consolidar entregas por zona geográfica y optimizar los recorridos de los vehículos.
+---
 
-RF-11 — Visualización de stock
+## RF-04 — Control de Inventario Crítico
 
-Como operador y gerente de logística
-debo poder visualizar el stock disponible en el centro de distribución por categoría (secos, refrigerados, tóxicos)
-para garantizar disponibilidad operativa de productos.
+El sistema deberá permitir identificar rápidamente productos con menor cantidad disponible para priorizar su reposición.
 
-⚙️ REQUISITOS NO FUNCIONALES
-RNF-01 — Arquitectura del sistema
+El sistema deberá mantener los productos organizados según nivel de stock.
 
-El sistema deberá estar compuesto por una arquitectura cliente-servidor
-utilizando un frontend web, un backend API y una base de datos relacional
-para garantizar separación de responsabilidades y escalabilidad.
+---
 
-RNF-02 — Rendimiento del sistema
+## RF-05 — Gestión de Pedidos
 
-El sistema deberá responder a las solicitudes API en un tiempo menor a 300 ms en operaciones de consulta
-para garantizar eficiencia operativa en entornos logísticos.
+El sistema deberá permitir crear, visualizar, actualizar y despachar pedidos asociados a productos almacenados en el centro logístico.
 
-RNF-03 — Seguridad de acceso
+---
 
-El sistema deberá implementar autenticación basada en roles (RBAC)
-para garantizar el acceso controlado a las funcionalidades según el tipo de usuario (administrador, gerente, operador, chofer, jefe).
+## RF-06 — Optimización de Recolección
 
-RNF-04 — Persistencia de datos
+El sistema deberá calcular recorridos óptimos dentro del depósito considerando la interconexión entre pasillos y sectores para minimizar desplazamientos de los operarios.
 
-El sistema deberá garantizar la persistencia consistente de datos en la base de datos relacional
-para asegurar la integridad de información de pedidos, remitos, rutas y stock.
+---
 
-RNF-05 — Escalabilidad
+## RF-07 — Gestión de Rutas de Distribución
 
-El sistema deberá permitir el incremento progresivo de sucursales, usuarios, pedidos y vehículos
-sin degradación significativa del rendimiento.
+El sistema deberá permitir registrar y visualizar rutas de distribución entre el centro logístico y las sucursales de destino.
 
-RNF-06 — Contenerización del sistema
+---
 
-El sistema deberá ser desplegable mediante contenedores Docker
-para asegurar portabilidad entre entornos de desarrollo, testing y producción.
+## RF-08 — Línea de Expedición
 
-RNF-07 — Trazabilidad de operaciones
+El sistema deberá administrar los pedidos listos para despacho respetando el orden de ingreso a la línea de expedición.
 
-El sistema deberá registrar los movimientos de pedidos, remitos y rutas
-para permitir auditoría y seguimiento de procesos logísticos.
+---
 
-RNF-08 — Integridad de datos
+## RF-09 — Registro de Movimientos
 
-El sistema deberá garantizar consistencia en las operaciones de actualización de estado de pedidos y stock
-para evitar discrepancias entre el centro de distribución y las sucursales.
+El sistema deberá registrar los movimientos realizados sobre productos y pedidos para mantener trazabilidad operativa.
+
+---
+
+## RF-10 — Reversión de Operaciones
+
+El sistema deberá permitir revertir movimientos recientes del inventario ante errores operativos.
+
+---
+
+## RF-11 — Validación de Integridad
+
+El sistema deberá impedir operaciones inválidas tales como:
+
+* productos duplicados,
+* stock negativo,
+* pedidos vacíos,
+* búsquedas inexistentes,
+* rutas inválidas.
+
+---
+
+# 3. Requisitos No Funcionales
+
+## RNF-01 — Eficiencia
+
+El sistema deberá utilizar estructuras de datos optimizadas para minimizar la complejidad temporal de las operaciones críticas.
+
+---
+
+## RNF-02 — Rendimiento
+
+Las operaciones de búsqueda de productos y consulta de stock deberán ejecutarse en tiempos reducidos aun con grandes volúmenes de información.
+
+---
+
+## RNF-03 — Robustez
+
+El sistema deberá manejar errores de entrada y casos límite sin provocar fallos en la ejecución.
+
+---
+
+## RNF-04 — Persistencia de Datos
+
+El sistema deberá mantener persistencia de la información relacionada con productos, pedidos, rutas y movimientos logísticos.
+
+---
+
+## RNF-05 — Integridad de Datos
+
+El sistema deberá garantizar consistencia entre las operaciones realizadas y el estado actual del inventario.
+
+---
+
+## RNF-06 — Modularidad
+
+El sistema deberá desarrollarse utilizando una arquitectura modular basada en separación de responsabilidades.
+
+---
+
+## RNF-07 — Escalabilidad
+
+El sistema deberá permitir incorporar nuevos productos, pedidos y rutas sin degradación significativa del rendimiento.
+
+---
+
+## RNF-08 — Legibilidad
+
+El código deberá utilizar nombres descriptivos, comentarios explicativos y organización clara de clases e interfaces.
+
+---
+
+## RNF-09 — Mantenibilidad
+
+La estructura del sistema deberá facilitar futuras modificaciones y ampliaciones funcionales.
+
+---
+
+## RNF-10 — Casos de Prueba
+
+El sistema deberá incluir pruebas funcionales que validen el correcto comportamiento de las operaciones principales y estructuras utilizadas.
+
+---
+# Glosario Actualizado
+
+| Término                  | Definición                                                                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| AVL                      | Árbol binario auto-balanceado utilizado para búsquedas eficientes.                                           |
+| Código Universal         | Identificador único asociado a cada producto del sistema.                                                    |
+| Cola (Queue)             | Estructura FIFO donde el primer elemento en ingresar es el primero en salir.                                 |
+| Complejidad Temporal     | Medida del costo computacional de una operación según cantidad de datos.                                     |
+| Dijkstra                 | Algoritmo utilizado para calcular caminos mínimos dentro de un grafo.                                        |
+| Estantería               | Estructura física del depósito donde se almacenan productos.                                                 |
+| FIFO                     | Modelo “First In, First Out” utilizado por colas.                                                            |
+| Grafo                    | Estructura compuesta por nodos y conexiones utilizada para representar recorridos.                           |
+| Heap                     | Estructura utilizada para mantener elementos ordenados según prioridad.                                      |
+| Interfaz                 | Componente visual o lógico mediante el cual el usuario interactúa con el sistema.                            |
+| Inventario               | Conjunto total de productos almacenados en el centro logístico.                                              |
+| Inventario Crítico       | Conjunto de productos con bajo nivel de stock que requieren reposición inmediata.                            |
+| LIFO                     | Modelo “Last In, First Out” utilizado por pilas.                                                             |
+| Línea de Expedición      | Área o proceso donde los pedidos esperan para ser cargados en vehículos de distribución.                     |
+| Lote                     | Conjunto de productos agrupados bajo un mismo identificador para facilitar trazabilidad y control logístico. |
+| Mercadería               | Productos o bienes almacenados y distribuidos dentro del sistema logístico.                                  |
+| Min Heap                 | Tipo de heap donde el elemento con menor valor tiene mayor prioridad de acceso.                              |
+| Nodo                     | Elemento individual dentro de una estructura de datos.                                                       |
+| Operario                 | Usuario encargado de realizar tareas de almacenamiento, recolección y despacho dentro del depósito.          |
+| Pasillo                  | Sector físico de circulación dentro del depósito.                                                            |
+| Pedido                   | Solicitud de productos destinada a una sucursal o punto de entrega.                                          |
+| Priority Queue           | Cola de prioridad utilizada para acceder rápidamente a elementos críticos.                                   |
+| Producto                 | Mercadería almacenada y gestionada por el sistema logístico.                                                 |
+| Recolección              | Proceso de búsqueda y retiro de productos dentro del depósito para preparar pedidos.                         |
+| Remito                   | Documento que registra movimientos de ingreso o egreso de mercadería.                                        |
+| Reposición               | Proceso de reabastecimiento de productos con bajo stock.                                                     |
+| Ruta                     | Recorrido utilizado para distribución o recolección de productos.                                            |
+| Sección                  | Subdivisión interna de una estantería o área del depósito.                                                   |
+| Stack                    | Pila utilizada para registrar y revertir operaciones recientes.                                              |
+| Stock                    | Cantidad disponible de un producto dentro del depósito.                                                      |
+| Sucursal                 | Punto de destino al cual se envían pedidos desde el centro logístico.                                        |
+| TDA                      | Tipo de Dato Abstracto utilizado para modelar estructuras de datos.                                          |
+| Trazabilidad             | Capacidad de registrar y consultar movimientos de mercadería.                                                |
+| Ubicación Física         | Posición específica de un producto dentro del depósito, compuesta por pasillo, estantería y sección.         |
+| Vehículo de Distribución | Medio utilizado para transportar pedidos hacia sucursales o destinos finales.                                |
+
