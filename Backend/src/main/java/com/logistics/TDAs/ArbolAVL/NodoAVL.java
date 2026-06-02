@@ -1,4 +1,4 @@
-package tdas.avl;
+package com.logistics.TDAs.ArbolAVL;
 
 public class NodoAVL<T> {
 

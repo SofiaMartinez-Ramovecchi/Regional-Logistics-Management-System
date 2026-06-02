@@ -1,28 +1,30 @@
+package com.logistics.TDAs.ArbolAVL;
+
 public class ArbolAVL <T extends Comparable<T>> implements IArbolAVL {
 
     NodoAVL raiz;
 
-    private int altura(NodoAVL nodo) {
+    private int altura(NodoAVL<T> nodo) {
 
         if (nodo == null) {
             return 0;
         }
 
-        return nodo.altura;
+        return nodo.getAltura();
     }
 
-    private int obtenerBalance(NodoAVL nodo) {
+    private int obtenerBalance(NodoAVL<T> nodo) {
 
         if (nodo == null) {
             return 0;
         }
 
-        return altura(nodo.izquierdo) - altura(nodo.derecho);
+        return altura(nodo.getIzquierdo()) - altura(nodo.getDerecho());
     }
 
-    private NodoAVL rotarDerecha(NodoAVL y) {
+    private NodoAVL rotarDerecha(NodoAVL<T> y) {
 
-        NodoAVL x = y.izquierdo;
+        NodoAVL x = y.getIzquierdo();
         NodoAVL temp = x.derecho;
 
         x.derecho = y;
@@ -52,19 +54,19 @@ public class ArbolAVL <T extends Comparable<T>> implements IArbolAVL {
         raiz = insertarRecursivo(raiz, dato);
     }
 
-    private NodoAVL insertarRecursivo(NodoAVL nodo, int dato) {
+    private NodoAVL insertarRecursivo(NodoAVL<T> nodo, int dato) {
 
         if (nodo == null) {
             return new NodoAVL(dato);
         }
 
-        if (dato < nodo.dato) {
+        if (dato < nodo.compareTo(nodo.getDato())) {
 
-            nodo.izquierdo = insertarRecursivo(nodo.izquierdo, dato);
+            nodo.setIzquierdo(insertarRecursivo(nodo.getIzquierdo(), dato));
 
-        } else if (dato > nodo.dato) {
+        } else if (dato > nodo.getDato()) {
 
-            nodo.derecho = insertarRecursivo(nodo.derecho, dato);
+            nodo.setDerecho(insertarRecursivo(nodo.getDerecho(), dato));
 
         } else {
             return nodo;
