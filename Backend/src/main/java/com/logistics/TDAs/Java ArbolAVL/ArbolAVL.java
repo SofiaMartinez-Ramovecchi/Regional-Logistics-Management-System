@@ -1,4 +1,4 @@
-public class ArbolAVL implements IArbolAVL {
+public class ArbolAVL <T extends Comparable<T>> implements IArbolAVL {
 
     NodoAVL raiz;
 
