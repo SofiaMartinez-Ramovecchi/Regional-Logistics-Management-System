@@ -1,12 +1,22 @@
+package com.logistics.models;
+
 public class Producto implements Comparable<Producto> {
 
-    private String codigo;
+    private String codigoUniversal;
+    private String nombre;
+    private int stock;
+    private UbicacionFisica ubicacion;
+    private int stockMinimo;
 
     @Override
     public int compareTo(Producto otro) {
-
-        return codigo.compareTo(otro.codigo);
-
+        return codigoUniversal.compareTo(otro.codigoUniversal);
     }
 
+    public void actualizarStock(int cantidad) {
+    }
+
+    public boolean esCritico() {
+        return false;
+    }
 }
