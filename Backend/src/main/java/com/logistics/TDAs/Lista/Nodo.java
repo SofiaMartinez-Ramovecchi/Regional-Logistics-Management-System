@@ -1,3 +1,5 @@
+package com.logistics.TDAs.Lista;
+
 class Nodo {
     int dato;
     Nodo siguiente;

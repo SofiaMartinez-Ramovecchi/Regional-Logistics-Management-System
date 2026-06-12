@@ -1,6 +1,6 @@
-package com.logistics.TDAs.DynamicQueue;
+package com.logistics.TDAs.MinHeap;
 
-public interface IColaConPrioridad {
+public interface IMinHeap {
     public void encolar(int elemento);
     public int desencolar();
     public boolean estaVacia();

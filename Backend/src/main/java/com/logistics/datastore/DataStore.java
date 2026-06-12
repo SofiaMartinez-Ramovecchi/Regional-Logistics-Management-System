@@ -1,9 +1,14 @@
 package com.logistics.datastore;
 import com.logistics.TDAs.ArbolAVL.ArbolAVL;
+import com.logistics.TDAs.MinHeap.MinHeap;
+import com.logistics.TDAs.DynamicQueue.DynamicQueue;
+import com.logistics.TDAs.Graph.Graph;
+import com.logistics.TDAs.DynamicStack.DynamicStack;
 import com.logistics.models.Pedido;
 import com.logistics.models.Producto;
 import com.logistics.models.Lote;
-import com.logistics.TDAs.MinHeap.
+
+
 
 public class DataStore {
 

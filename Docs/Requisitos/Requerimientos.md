@@ -189,7 +189,7 @@ El sistema deberá incluir pruebas funcionales que validen el correcto comportam
 | Reposición               | Proceso de reabastecimiento de productos con bajo stock.                                                     |
 | Ruta                     | Recorrido utilizado para distribución o recolección de productos.                                            |
 | Sección                  | Subdivisión interna de una estantería o área del depósito.                                                   |
-| Stack                    | Pila utilizada para registrar y revertir operaciones recientes.                                              |
+| Stack                    | DynamicStack utilizada para registrar y revertir operaciones recientes.                                              |
 | Stock                    | Cantidad disponible de un producto dentro del depósito.                                                      |
 | Sucursal                 | Punto de destino al cual se envían pedidos desde el centro logístico.                                        |
 | TDA                      | Tipo de Dato Abstracto utilizado para modelar estructuras de datos.                                          |

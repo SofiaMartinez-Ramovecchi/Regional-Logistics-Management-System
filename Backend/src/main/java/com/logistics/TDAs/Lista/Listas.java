@@ -1,3 +1,5 @@
+package com.logistics.TDAs.Lista;
+
 public class Listas implements IListas {
     private Nodo cabeza;
 

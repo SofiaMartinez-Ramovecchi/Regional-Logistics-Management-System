@@ -1,11 +1,11 @@
-//Pila
+package com.logistics.TDAs.DynamicStack;
 
-public class Pila implements IPila{
+public class DynamicStack implements IDynamicStack {
     private int tope;
     private int[] datos;
     private int max;
     //Constructor
-    public Pila(int max) {
+    public DynamicStack(int max) {
         this.max = max;
         this.datos = new int[max];
         this.tope = -1;

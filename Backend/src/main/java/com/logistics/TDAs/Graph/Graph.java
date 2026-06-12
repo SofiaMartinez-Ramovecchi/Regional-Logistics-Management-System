@@ -1,13 +1,13 @@
 package com.logistics.TDAs.Graph;
 
-public class GrafoMatrizAdyacencia implements IGrafo {
+public class Graph implements IGraph {
 
     private Sucursal[] vertices;
     private double[][] matriz;   // ponderada: guarda distancia (0 = sin arista)
     private int cantidad;
     private int capacidad;
 
-    public GrafoMatrizAdyacencia(int capacidad) {
+    public Graph(int capacidad) {
         this.capacidad = capacidad;
         this.cantidad = 0;
         this.vertices = new Sucursal[capacidad];

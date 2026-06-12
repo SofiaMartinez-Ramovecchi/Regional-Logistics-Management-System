@@ -1,4 +1,6 @@
-public interface IGrafo {
+package com.logistics.TDAs.Graph;
+
+public interface IGraph {
     void insertarVertice(Sucursal sucursal);
     void eliminarVertice(Sucursal sucursal);
     void insertarArista(Sucursal origen, Sucursal destino, double distancia);

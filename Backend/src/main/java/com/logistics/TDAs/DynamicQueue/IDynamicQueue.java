@@ -1,6 +1,6 @@
 package com.logistics.TDAs.DynamicQueue;
 
-public interface ICola {
+public interface IDynamicQueue {
     public void encolar(int elemento);
     public int desencolar();
     public boolean estaVacia();

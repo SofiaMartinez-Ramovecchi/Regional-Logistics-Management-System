@@ -1,13 +1,12 @@
 package com.logistics.TDAs.DynamicQueue;
 
-//Cola
-public class Cola implements ICola {
+public class DynamicQueue implements IDynamicQueue {
     private int inicio;
     private int fin;
     private int[] datos;
     private int max;
     //Constructor
-    public Cola(int max) {
+    public DynamicQueue(int max) {
         this.max = max;
         this.datos = new int[max];
         this.inicio = 0;

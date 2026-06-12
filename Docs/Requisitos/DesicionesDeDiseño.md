@@ -128,7 +128,7 @@ Esto representa correctamente el comportamiento real de una fila de despacho.
 
 # 5. Trazabilidad y Reversión de Movimientos
 
-Para registrar movimientos recientes de mercadería y permitir revertir operaciones erróneas se decidió utilizar una Pila (Stack).
+Para registrar movimientos recientes de mercadería y permitir revertir operaciones erróneas se decidió utilizar una DynamicStack (Stack).
 
 ## Justificación Técnica
 

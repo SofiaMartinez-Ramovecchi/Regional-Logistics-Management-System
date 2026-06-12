@@ -1,12 +1,12 @@
 package com.logistics.TDAs.MinHeap;
 
-public class ColaConPrioridad implements IColaConPrioridad {
+public class MinHeap implements IMinHeap {
     private int[] datos;
     private int[] prioridades;
     private int max;
     private int count;
 
-    public ColaConPrioridad(int max) {
+    public MinHeap(int max) {
         this.max = max;
         this.datos = new int[max];
         this.prioridades = new int[max];

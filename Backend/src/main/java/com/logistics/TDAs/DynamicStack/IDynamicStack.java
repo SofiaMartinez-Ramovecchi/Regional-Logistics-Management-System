@@ -1,4 +1,6 @@
-public interface IPila {
+package com.logistics.TDAs.DynamicStack;
+
+public interface IDynamicStack {
     public void apilar(int elemento);
     public int desapilar();
     public boolean estaVacia();
