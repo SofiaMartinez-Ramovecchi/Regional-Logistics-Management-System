@@ -25,7 +25,7 @@ public class Lote implements Comparable<Lote> {
         this.prioridad = prioridad;
     }
 
-    // El árbol AVL ordena los lotes por ID
+    // El arbol ordena los lotes con el id
     @Override
     public int compareTo(Lote otro) {
         return this.id.compareTo(otro.id);

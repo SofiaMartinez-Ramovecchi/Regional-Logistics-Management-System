@@ -1,3 +1,5 @@
+package com.logistics.TDAs.Graph;
+
 public class GrafoMatrizAdyacencia implements IGrafo {
 
     private Sucursal[] vertices;
