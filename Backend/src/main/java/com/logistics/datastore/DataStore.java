@@ -1,3 +1,9 @@
+package com.logistics.datastore;
+import com.logistics.TDAs.ArbolAVL.ArbolAVL;
+import com.logistics.models.Pedido;
+import com.logistics.models.Producto;
+import com.logistics.models.Lote;
+
 public class DataStore {
 
     private ArbolAVL<Producto> productos;

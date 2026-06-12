@@ -1,4 +1,4 @@
-package datastore;
+package com.logistics.datastore;
 
 public class DataLoader {
 
