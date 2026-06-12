@@ -1,4 +1,6 @@
-package datastore;
+package com.logistics.datastore;
+
+import com.logistics.datastore.DataStore;
 
 public class DataPersistence {
 

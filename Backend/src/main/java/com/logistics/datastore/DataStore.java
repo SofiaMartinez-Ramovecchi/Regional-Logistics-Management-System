@@ -15,11 +15,8 @@ public class DataStore {
     private ArbolAVL<Producto> productos;
     private ArbolAVL<Lote> lotes;
 
-    private MinHeap<Producto> inventarioCritico;
 
-    private DynamicQueue<Pedido> expedicion;
 
-    private DynamicStack<Movimiento> movimientos;
 
     private Graph deposito;
 
@@ -28,13 +25,6 @@ public class DataStore {
         this.productos = new ArbolAVL<>();
         this.lotes = new ArbolAVL<>();
 
-        this.inventarioCritico = new MinHeap<>();
-
-        this.expedicion = new DynamicQueue<>();
-
-        this.movimientos = new DynamicStack<>();
-
-        this.deposito = new Graph();
     }
 
     public ArbolAVL<Producto> getProductos() {
@@ -45,17 +35,7 @@ public class DataStore {
         return lotes;
     }
 
-    public MinHeap<Producto> getInventarioCritico() {
-        return inventarioCritico;
-    }
 
-    public DynamicQueue<Pedido> getExpedicion() {
-        return expedicion;
-    }
-
-    public DynamicStack<Movimiento> getMovimientos() {
-        return movimientos;
-    }
 
     public Graph getDeposito() {
         return deposito;
